@@ -1,13 +1,35 @@
 package teacher;
 
+import courses.Course;
+import student.StudentData;
+
+import java.util.ArrayList;
+
 public class TeacherData {
     private int teacherID;
     private String teacherSurname, teacherFirstName;
-    //TODO: class for teacher course
+    private ArrayList<Course> courses;
     public TeacherData(int teacherID, String teacherSurname, String teacherFirstName) {
         this.teacherID = teacherID;
         this.teacherSurname = teacherSurname;
         this.teacherFirstName = teacherFirstName;
+    }
+
+    public boolean teachesCourse(int courseID) {
+        for (Course course : courses) {
+            if (course.getId() == courseID) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //TODO: throw exception if teacher doesn't teach the course
+    public void addGrade(StudentData student, final int grade, final int courseID) {
+        if (!teachesCourse(courseID)) {
+            System.out.println("Teacher has no access to this course");
+            return;
+        }
+        student.addGrade(grade, courseID);
     }
 
     public int getTeacherID() {
