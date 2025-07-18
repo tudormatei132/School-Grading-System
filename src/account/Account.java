@@ -14,7 +14,6 @@ public class Account {
         this.rights = rights;
     }
 
-
     public int getId() {
         return id;
     }

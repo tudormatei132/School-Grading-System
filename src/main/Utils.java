@@ -5,4 +5,9 @@ public class Utils {
         READ,
         READWRITE
     }
+    public static enum COURSE_TYPE{
+        MANDATORY,
+        OPTIONAL,
+        ELECTIVE
+    }
 }
